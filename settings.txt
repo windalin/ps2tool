@@ -1,0 +1,17 @@
+recursion_path
+
+start_with_recursion
+0
+other_fonts
+default
+most_recent_font
+default
+other_useroptions
+UserOptions.ini
+most_recent_useroptions
+UserOptions.ini
+most_recent_world
+Connery
+is_default_settings
+1
+end
