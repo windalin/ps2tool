@@ -12,6 +12,11 @@ from configparser import ConfigParser
 from shutil import copyfile
 from datetime import datetime
 
+#external libraries
+import pygetwindow
+import pyautogui
+
+
 start = time.time()
 
 #======================CLASSES
@@ -133,6 +138,14 @@ def write_to_settings(filename, reset=False):
     file.close()
 
 def apply_changes():
+    #get ps2 window
+    try:
+        launchpad_window = pygetwindow.getWindowsWithTitle("Planetside 2")[0]
+        
+    except:
+        launchpad_window = None
+        print("Launchpad window not found")
+    
     s = time.time()
     settings["recursion_path"] = recursion_entry.get()
     settings["start_with_recursion"] = recursion_checkbutton.my_variable.get()
@@ -172,8 +185,8 @@ def apply_changes():
     if settings["most_recent_useroptions"] != "UserOptions.ini" and settings["most_recent_useroptions"] != "":
         copyfile(settings["most_recent_useroptions"], "Useroptions.ini")
 
-    if settings["start_with_recursion"] == "1" and settings["recursion_path"] != "\n":
-        os.startfile(settings["recursion_path"])
+    #if settings["start_with_recursion"] == "1" and settings["recursion_path"] != "\n":
+        #os.startfile(settings["recursion_path"])
 
     selected_ini_file = useroptions_combobox.get()
     config.read(selected_ini_file)
@@ -185,6 +198,18 @@ def apply_changes():
 
     print()
     print(time.time() - s, "seconds to apply changes")
+
+    if launchpad_window:
+        print("Launchpad window found")
+        launchpad_window.activate()
+        #752, 522
+        play_button_x = launchpad_window.left + 752
+        play_button_y = launchpad_window.top + 522
+        pyautogui.click(play_button_x, play_button_y)
+    else:
+        print("Launchpad window not found")
+
+    window.destroy()
 
 def set_colours(colours): #index 012 for reticule nodeploy orbital
     reticule_colour_label2.configure(bg=decimal_to_tkinter(colours[0]), text=str(colours[0]), fg=white_or_black(colours[0]))
@@ -270,6 +295,7 @@ def close_everything(close_self=False):
 
 #second thread
 def get_population():
+    print("\nget pop started")
     pop_label = tkinter.Label(text="Getting server population from fisu API...")
     pop_label.grid(row=1, column=4, columnspan=2, padx=(60, 0), sticky="W")
 
@@ -345,7 +371,12 @@ def update_pop_labels(server):
     nc_percent_label.configure(text=str(nc_percent) + "% | " + str(info["nc"]))
     
 def server_to_id(server):
-    return worlds_ids[worlds_names.index(server)]    
+    return worlds_ids[worlds_names.index(server)]
+
+#third thread
+def not_top():
+    time.sleep(5)
+    window.after_idle(window.attributes, '-topmost', False)
     
 #======================INITIALISE
 window = tkinter.Tk()
@@ -354,6 +385,7 @@ window = tkinter.Tk()
 thread2 = threading.Thread(target=get_population, args=())
 thread2.start()
 
+print("\nmain123")
 window.title("PS2 tool")
 window.geometry("1100x250")
 
@@ -493,6 +525,12 @@ close_everything_button.grid(row=7, column=4, columnspan=2, padx=(60, 0), sticky
 
 print()
 print(time.time() - start, "seconds for main thread")
+
+window.lift()
+window.attributes('-topmost', True)
+
+thread3 = threading.Thread(target=not_top, args=())
+thread3.start()
 
 window.mainloop()
 
