@@ -205,9 +205,16 @@ def apply_changes():
         #752, 522
         play_button_x = launchpad_window.left + 752
         play_button_y = launchpad_window.top + 522
+        time.sleep(0.05)
         pyautogui.click(play_button_x, play_button_y)
     else:
         print("Launchpad window not found")
+
+    try:
+        recursion_window = pygetwindow.getWindowsWithTitle("Recursion Tracker")[0]
+        recursion_window.minimize()
+    except:
+        print("recursion window not found")
 
     window.destroy()
 
@@ -277,7 +284,7 @@ def kill_msi_afterburner():
 
 def close_everything(close_self=False):
     print()
-    
+
     kill_recursion = os.system("taskkill /f /t /im RTST.exe")
     if kill_recursion == 0:
         print("recursion killed, taskkill code: 0")
@@ -292,6 +299,7 @@ def close_everything(close_self=False):
 
     if close_self:
         window.destroy()
+        return None
 
 #second thread
 def get_population():
@@ -349,14 +357,22 @@ def update_pop_labels(server):
     info = results[world_id][0]
     total_pop = info["vs"] + info["tr"] + info["nc"]
 
-    vs_percent = round((info["vs"] / total_pop) * 100)
-    tr_percent = round((info["tr"] / total_pop) * 100)
-    nc_percent = round((info["nc"] / total_pop) * 100)
-    max_percent = max(vs_percent, tr_percent, nc_percent)
-    vs_width = round((vs_percent / max_percent) * 30)
-    tr_width = round((tr_percent / max_percent) * 30)
-    nc_width = round((nc_percent / max_percent) * 30)
-    
+    if total_pop != 0:
+        vs_percent = round((info["vs"] / total_pop) * 100)
+        tr_percent = round((info["tr"] / total_pop) * 100)
+        nc_percent = round((info["nc"] / total_pop) * 100)
+        max_percent = max(vs_percent, tr_percent, nc_percent)
+        vs_width = round((vs_percent / max_percent) * 30)
+        tr_width = round((tr_percent / max_percent) * 30)
+        nc_width = round((nc_percent / max_percent) * 30)
+    else:
+        vs_percent = 0
+        tr_percent = 0
+        nc_percent = 0
+        vs_width = 0
+        tr_width = 0
+        nc_width = 0
+        
     print("\nUpdate population for:", server)
     print("Total pop:", total_pop)
     print("VS: ", info["vs"], " | ", vs_percent, "%", sep="")
@@ -377,6 +393,29 @@ def server_to_id(server):
 def not_top():
     time.sleep(5)
     window.after_idle(window.attributes, '-topmost', False)
+
+#fourth thread
+def minimise_recursion():
+    time.sleep(3)
+    start = time.time()
+    
+    while True:
+        time.sleep(0.1)
+        recursion_window = pygetwindow.getWindowsWithTitle("Recursion Tracker")
+
+        if (time.time() - start) > 15:
+            print("recursion window not found, timing out")
+            return None
+        
+        if len(recursion_window) != 0:
+            recursion_window = recursion_window[0]
+            print("recursion window found")
+            break
+
+    recursion_window.minimize()
+
+    return None
+        
     
 #======================INITIALISE
 window = tkinter.Tk()
@@ -384,6 +423,9 @@ window = tkinter.Tk()
 #run second thread for pop data
 thread2 = threading.Thread(target=get_population, args=())
 thread2.start()
+
+thread4 = threading.Thread(target=minimise_recursion, args=())
+thread4.start()
 
 print("\nmain123")
 window.title("PS2 tool")
