@@ -9,7 +9,9 @@
 - Population viewer for Connery, Miller, Cobalt, Emerald, and Soltech.  Uses Honu's population API, see https://wt.honu.pw/api-doc/index.html.
 - Automatically start the launchpad and Recursion stat tracker.
 
-**Important: wait for the launchpad to download any updates and let the `>> PLAY <<` button light up before clicking** `Apply changes`**.**
+**Important:**
+- **Wait for the launchpad to download any updates and let the `>> PLAY <<` button light up before clicking** `Apply changes`**.**  
+- **This tool does not validate that the currently selected .ini is valid, please ensure that the selected .ini file is valid before using it.**
 
 ## Download
 - https://github.com/windalin/ps2tool/releases
