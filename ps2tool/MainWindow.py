@@ -60,7 +60,7 @@ class MainWindow:
 			self.reticule_label = Label(self.canvas, text=self.useroptions.TintModeReticuleColor, width=18, fg="white", bg=decimal_to_rgb(self.useroptions.TintModeReticuleColor), relief="groove")
 		else:
 			self.reticule_label = Label(self.canvas, text="disabled", width=18, fg="white", bg="black", relief="groove")
-		self.reticule_label.place(x=160, y=64)
+		self.reticule_label.place(x=160, y=66)
 		#endregion
 
 		# right side
