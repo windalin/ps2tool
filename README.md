@@ -1,6 +1,6 @@
 # ps2tool
 
-![image](https://user-images.githubusercontent.com/45084896/165136891-2bb90272-84ba-4cdb-9af8-cf2657b82af0.png)
+![image](https://user-images.githubusercontent.com/45084896/165137417-92845c92-a44d-4a3d-ac45-e6991e88c14f.png)
 
 ## Features
 - Choose between multiple .ttf fonts to use as the in game font.
