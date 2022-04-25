@@ -18,6 +18,11 @@
 - https://github.com/windalin/ps2tool/releases
 
 ## Installation
+### Executable version:
+Extract the `ps2tool` folder somewhere convenient.
+
+### Installer version:
+
 **! This tool currently doesn't work when installed under C:\Program Files, pick somewhere else for now.**
 1. Download and install Python 3 https://www.python.org/downloads/.
 2. Extract `Installer.py` and the `ps2tool` folder somewhere convenient.
