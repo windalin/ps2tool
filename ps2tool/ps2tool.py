@@ -1,7 +1,6 @@
 """Entry point."""
 
 import json
-import requests
 import time
 
 from MainWindow import MainWindow
@@ -14,10 +13,12 @@ from shutil import copyfile
 from sys import exit
 from threading import Thread
 from tkinter import Tk, messagebox
+from urllib.request import Request, urlopen
 
 def get_population(main_window):
 	honu_url = "https://wt.honu.pw/api/population/multiple?worldID=1&worldID=10&worldID=13&worldID=17&worldID=40" # maybe use a backup fisu request in case honu doesn't work
-	population = json.loads(requests.get(honu_url).text)
+	req = Request(honu_url, headers={'User-Agent': 'Mozilla/5.0'}) # honu api blocks the request if it has no user agent
+	population = json.loads(urlopen(req).read().decode("utf-8"))
 	fetched_time = datetime.now().strftime("%H:%M %p")
 
 	# this order relies on honu returning results in the order of the given worldIDs
