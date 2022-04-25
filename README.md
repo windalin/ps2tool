@@ -27,3 +27,4 @@ To uninstall, just delete the `ps2tool` folder where you installed it.
 - Geo-Md.ttf is the original font that the game uses.  The tool copies Geo-Md.ttf to UI/Resource/Fonts/Geo-Md.ttf before starting the launchpad, preventing it from redownloading Geo-Md.ttf if a different font was previously used.  This prevents login issues if the download servers are down but game servers are up.  See https://twitter.com/AndySites/status/1327365280515801088.
 - Newly tracked directives are currently not copied to different .ini files.
 - Alternative fonts must be .ttf files.
+- This project is written in Python 3.8 for Windows 10 and may not work on older versions of Python and/or other operating systems.
