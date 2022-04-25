@@ -8,7 +8,7 @@
 - Choose tint colour for infantry reticules.
 - Population viewer for Connery, Miller, Cobalt, Emerald, and SolTech.  Uses Honu's population API, see https://wt.honu.pw/api-doc/index.html.
 - Automatically start the launchpad and Recursion stat tracker.
-- Auto click the play button (optional, requires PyGetWindow and PyAutoGUI).
+- Automatically click the play button (optional, requires PyGetWindow and PyAutoGUI).
 
 **Important:**
 - **Wait for the launchpad to download any updates and let the `>> PLAY <<` button light up before clicking** `Apply changes`**.**  
