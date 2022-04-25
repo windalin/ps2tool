@@ -1,5 +1,7 @@
 # ps2tool
 
+![image](https://user-images.githubusercontent.com/45084896/165136891-2bb90272-84ba-4cdb-9af8-cf2657b82af0.png)
+
 ## Features
 - Choose between multiple .ttf fonts to use as the in game font.
 - Choose between multiple .ini files to use as UserOptions.ini.
