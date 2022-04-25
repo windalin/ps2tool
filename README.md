@@ -6,7 +6,7 @@
 - Choose between multiple .ttf fonts to use as the in game font.
 - Choose between multiple .ini files to use as UserOptions.ini.
 - Choose tint colour for infantry reticules.
-- Population viewer for Connery, Miller, Cobalt, Emerald, and Soltech.  Uses Honu's population API, see https://wt.honu.pw/api-doc/index.html.
+- Population viewer for Connery, Miller, Cobalt, Emerald, and SolTech.  Uses Honu's population API, see https://wt.honu.pw/api-doc/index.html.
 - Automatically start the launchpad and Recursion stat tracker.
 
 **Important:**
@@ -28,3 +28,8 @@ To uninstall, just delete the `ps2tool` folder where you installed it.
 - Newly tracked directives are currently not copied to different .ini files.
 - Alternative fonts must be .ttf files.
 - This project is written in Python 3.8 for Windows 10 and may not work on older versions of Python and/or other operating systems.
+
+## Disclaimer
+- You (the user) assume full responsibility and liability by using this tool and its features, including but not limited to: changing font, changing UserOptions.ini, enabling custom reticule colours, changing custom reticule colour.  I am not responsible nor liable for any bans to your Daybreak Games/Planetside 2 account(s) as a result.
+- Changing the ingame font is currently not bannable (see: [Daybreak Games forum thread](https://forums.daybreakgames.com/ps2/index.php?threads/will-changing-the-font-in-game-get-me-banned.78236/), mirror: [Wayback Machine](https://web.archive.org/web/20220424191522/https://forums.daybreakgames.com/ps2/index.php?threads/will-changing-the-font-in-game-get-me-banned.78236/)), however this may change in the future.
+- Using custom reticule colours is currently not bannable (see: [reddit thread](https://www.reddit.com/r/Planetside/comments/2tq92i/psa_you_can_customize_the_color_of_your_reticules/), mirror: [Wayback Machine](http://web.archive.org/web/20220425173729/https://www.reddit.com/r/Planetside/comments/2tq92i/psa_you_can_customize_the_color_of_your_reticules/)), however this may change in the future.
