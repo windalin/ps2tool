@@ -1,4 +1,7 @@
 """Glorified file copier."""
+
+# TODO: installing in C:\Program Files requires admin privileges (oops), use an empty default path for now
+
 import sys
 sys.path.append("./ps2tool")
 
@@ -8,7 +11,7 @@ from distutils.dir_util import copy_tree
 from os import path, rename, startfile, walk
 from tkinter import Label, Tk, filedialog, messagebox
 
-DEFAULT_PATH = "C:/Program Files/ps2tool"
+DEFAULT_PATH = ""
 
 def get_size(start_path=".") -> int:
     """Taken from https://stackoverflow.com/questions/1392413/calculating-a-directorys-size-using-python.  Size in bytes."""
