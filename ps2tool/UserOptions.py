@@ -1,6 +1,6 @@
 """Glorified INI reader and writer"""
 
-# TODO: may need to add rever()
+# TODO: may need to add revert()
 
 from configparser import ConfigParser
 
