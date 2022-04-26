@@ -21,7 +21,7 @@ def get_population(main_window):
 	population = json.loads(urlopen(req).read().decode("utf-8"))
 	fetched_time = datetime.now().strftime("%H:%M %p")
 
-	# this order relies on honu returning results in the order of the given worldIDs
+	# this order relies on honu returning results in the order of the given worldIDs, may be a brittle point
 	worlds = {
 		"Connery": World(population[0], name="Connery"),
 		"Miller": World(population[1], name="Miller"),
