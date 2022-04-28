@@ -84,7 +84,7 @@ class MainWindow:
 		self.vs_pop = self.canvas.create_text(1017, 40, text="", fill=self.text_fg, anchor=NW)
 		self.tr_pop = self.canvas.create_text(1017, 70, text="", fill=self.text_fg, anchor=NW)
 		self.nc_pop = self.canvas.create_text(1017, 100, text="", fill=self.text_fg, anchor=NW)
-		self.total_pop = self.canvas.create_text(975, 130, text="123", fill=self.text_fg, anchor=NW)
+		self.total_pop = self.canvas.create_text(975, 130, text="", fill=self.text_fg, anchor=NW)
 		self.wandering_bots = self.canvas.create_text(810, 130, text="", fill=self.text_fg, anchor=NW)
 		MyButton(self.canvas, text="Reset settings", image=self.button_img, command=self.reset_settings).configure_defaults(self.bg).place(x=717, y=155)
 		MyButton(self.canvas, text="Change theme", image=self.button_img, command=self.change_theme).configure_defaults(self.bg).place(x=717, y=185)
