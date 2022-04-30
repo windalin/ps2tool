@@ -172,10 +172,17 @@ class MainWindow:
 		self.useroptions.commit_changes()
 
 		if self.settings.MostRecentFont != "default (Geo-Md.ttf)":
-			copyfile(self.settings.MostRecentFont, self.settings.PS2Path + "/UI/Resource/Fonts/Geo-Md.ttf")
+			try:
+				copyfile(self.settings.MostRecentFont, self.settings.PS2Path + "/UI/Resource/Fonts/Geo-Md.ttf")
+			except Exception as e:
+				messagebox.showerror("Error copying font", e)
 
 		if self.settings.MostRecentINI != "UserOptions.ini":
-			copyfile(self.settings.MostRecentINI, self.settings.PS2Path + "/UserOptions.ini")
+			try:
+				copyfile(self.settings.MostRecentINI, self.settings.PS2Path + "/UserOptions.ini")
+			except Exception as e:
+				messagebox.showerror("Error copying .ini", e)
+
 
 		if HAS_ADDITIONAL_PACKAGES:
 			click_play()

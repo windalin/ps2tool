@@ -33,6 +33,9 @@ class UserOptions(ConfigParser):
 	# Methods
 	#region
 	def commit_changes(self):
-		with open(self.ini_path, "w") as f:
-			self.write(f)
+		try:
+			with open(self.ini_path, "w") as f:
+				self.write(f)
+		except Exception as e:
+			print(e)
 	#endregion
