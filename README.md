@@ -40,3 +40,8 @@ To uninstall, just delete the `ps2tool` folder where you installed it.
 - You (the user) assume full responsibility and liability by using this program and its features, including but not limited to: changing font, changing UserOptions.ini, enabling custom reticule colours, changing custom reticule colour.  I (the author of this project) am not responsible nor liable for any ban(s) to your Daybreak Games/Planetside 2 account(s) as a result.
 - Changing the ingame font is currently not bannable (see: [Daybreak Games forum thread](https://forums.daybreakgames.com/ps2/index.php?threads/will-changing-the-font-in-game-get-me-banned.78236/), mirror: [Wayback Machine](https://web.archive.org/web/20220424191522/https://forums.daybreakgames.com/ps2/index.php?threads/will-changing-the-font-in-game-get-me-banned.78236/)), however this may change in the future at the discretion of Daybreak Games.
 - Using custom reticule colours is currently not bannable (see: [reddit thread](https://www.reddit.com/r/Planetside/comments/2tq92i/psa_you_can_customize_the_color_of_your_reticules/), mirror: [Wayback Machine](http://web.archive.org/web/20220425173729/https://www.reddit.com/r/Planetside/comments/2tq92i/psa_you_can_customize_the_color_of_your_reticules/)), however this may change in the future at the discretion of Daybreak Games.
+
+## GPT Connector
+- This section was appended from the GPT connector branch.
+- The README update path works well enough for small documentation changes.
+- Future connector tests can use this branch as a disposable sandbox.
